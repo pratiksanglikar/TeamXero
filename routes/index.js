@@ -26,6 +26,8 @@ router.post('/notifications', function (req, res, next) {
     var latitude = req.body.latitude,
         longitude = req.body.longitude,
         token = req.body.token;
+    if(token != null)
+    {
     var promise = LocationHandler.enableNotifications(token, longitude, latitude);
 
     promise.done(function (response) {
@@ -37,10 +39,13 @@ router.post('/notifications', function (req, res, next) {
             "statuscode": 500
         });
     });
+}
 });
 
 router.delete('/notifications', function (req, res, next) {
     var token = req.body.token;
+    if(token != null)
+    {
     var promise = LocationHandler.disableNotifications(token);
     promise.done(function (response) {
         res.send(
@@ -52,22 +57,25 @@ router.delete('/notifications', function (req, res, next) {
             "statuscode": 500
         });
     });
+}
 });
 
 router.post('/notificationupdate', function (req, res, next) {
     var latitude = req.body.latitude,
         longitude = req.body.longitude,
         token = req.body.token;
-    var promise = LocationHandler.notificationupdate(token, longitude, latitude);
-    promise.done(function (response) {
-        res.send({
-            "statuscode": 200
+    if(token != null) {
+        var promise = LocationHandler.notificationupdate(token, longitude, latitude);
+        promise.done(function (response) {
+            res.send({
+                "statuscode": 200
+            });
+        }, function (error) {
+            res.send({
+                "statuscode": 500
+            });
         });
-    }, function (error) {
-        res.send({
-            "statuscode": 500
-        });
-    });
+    }
 });
 
 router.post('/registerProvider', function (req, res, next) {
