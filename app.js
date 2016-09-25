@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var SMSRoute = require("./routes/SMSRoute");
 var MongoDB = require("./js/DAO/MongoDBHandler");
 
 var app = express();
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/sms', SMSRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -60,6 +62,25 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+var accountSid = 'AC495305136b825d112cd0e7523159cce9';
+var authToken = '7de49b648c53c1df8323bacde02ee7f4';
+
+//require the Twilio module and create a REST client
+var client = require('twilio')(accountSid, authToken);
+
+/*client.incomingPhoneNumbers.create({
+  phoneNumber: "4089048415",
+  areaCode: "408",
+  friendlyName: "TeamXero",
+}, function(err, number) {
+	if(err) {
+		console.log(err);
+	} else {
+		console.log(number.sid);
+	}
+});*/
+
 
 
 module.exports = app;
