@@ -136,3 +136,22 @@ exports.registerProvider = function (info) {
 	return deferred.promise;
 	//return true;
 };
+
+exports.getProvidersInZipcode = function (zipcode) {
+	var deferred = Q.defer();
+	var cursor = MongoDB.collection("users").find({
+    "zipcode" : zipcode
+	});
+	var usersdata = [];
+	cursor.each(function (error, doc) {
+		if (error) {
+			deferred.reject(error);
+		}
+		if (doc != null) {
+			usersdata.push(doc);
+		} else {
+			deferred.resolve(usersdata);
+		}
+	});
+	return deferred.promise;
+};
