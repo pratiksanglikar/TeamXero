@@ -25,8 +25,8 @@ router.post('/notifications', function (req, res, next) {
 
     var latitude = req.body.latitude,
         longitude = req.body.longitude,
-        email = req.body.email;
-    var promise = LocationHandler.enableNotifications(email, longitude, latitude);
+        token = req.body.token;
+    var promise = LocationHandler.enableNotifications(token, longitude, latitude);
 
     promise.done(function (response) {
         res.send({
