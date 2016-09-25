@@ -9,7 +9,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var SMSRoute = require("./routes/SMSRoute");
 var MongoDB = require("./js/DAO/MongoDBHandler");
-
+var session = require('express-sessions');
 var app = express();
 
 // view engine setup
@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(session({ secret: 'anything-you-want-but-keep-secret' }));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/sms', SMSRoute);
