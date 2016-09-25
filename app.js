@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var MongoDB = require("./js/DAO/MongoDBHandler");
 
 var app = express();
 
@@ -45,6 +46,10 @@ if (app.get('env') === 'development') {
     });
   });
 }
+
+MongoDB.connect(MongoDB.MONGODB_URL, function () {
+  console.log('Connected to mongo at: ' + MongoDB.MONGODB_URL);
+});
 
 // production error handler
 // no stacktraces leaked to user
