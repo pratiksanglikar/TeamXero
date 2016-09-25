@@ -28,7 +28,7 @@ router.get('/messages', function (req, res, next) {
 
 router.post('/messages', function (req, res, next) {
 	var zipCode = req.body.Body;
-	if(isNaN(zipCode)) {
+	if (isNaN(zipCode)) {
 		res.statusCode(500).send({'error': 'Invalid zipcode'});
 	}
 	else {
@@ -37,10 +37,14 @@ router.post('/messages', function (req, res, next) {
 			var twilio = require('twilio');
 			var twiml = new twilio.TwimlResponse();
 			var finalArray = "";
-			for(var i=0;i<array.length && i < 3; i++) {
-				finalArray +=
-					array[i].firstname + " " + array[i].lastName +
-					array[i].address.address + " " + array[i].address.city + " " + array[i].description;
+			if (array.length <= 0) {
+				finalArray = "Oops! No free food today! Sorry! :(";
+			} else {
+				for (var i = 0; i < array.length && i < 3; i++) {
+					finalArray +=
+						array[i].firstname + " " + array[i].lastName +
+						array[i].address.address + " " + array[i].address.city + " " + array[i].description;
+				}
 			}
 			twiml.message(finalArray);
 			res.writeHead(200, {'Content-Type': 'text/xml'});
