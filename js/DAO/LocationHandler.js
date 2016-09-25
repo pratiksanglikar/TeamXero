@@ -47,9 +47,11 @@ exports.enableNotifications = function (email, longitude,latitude ) {
 	var info =
 	{
 		"email" : email,
-		"longitude" : longitude,
-		"latitude" : latitude
+		"location" : [
+		longitude,
+		 latitude ]
 	};
+
 	var cursor = MongoDB.collection("consumer").insert(info);
 	cursor.then(function (user) {
 		deferred.resolve(user);
@@ -82,14 +84,16 @@ exports.notificationupdate = function (email, longitude,latitude){
 	var info =
 	{
 		"email" : email,
-		"longitude" : longitude,
-		"latitude" : latitude
+		"location" : [
+			longitude,
+			latitude]
 	};
 	var cursor = MongoDB.collection("consumer").update({"email" : email},
 		{
 			"email" : email,
-			"longitude":longitude,
-			"latitude":latitude
+			"location" : [
+				longitude,
+				latitude]
 
 		});
 	cursor.then(function (result) {

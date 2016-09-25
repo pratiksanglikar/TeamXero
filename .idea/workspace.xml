@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2542fb51-b375-4320-9711-37fb1cc0f529" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/DAO/LocationHandler.js" afterPath="$PROJECT_DIR$/js/DAO/LocationHandler.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
     </list>
@@ -25,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75879395">
-              <caret line="94" column="44" selection-start-line="94" selection-start-column="44" selection-end-line="94" selection-end-column="44" />
+            <state vertical-scroll-proportion="49.48148">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -55,14 +54,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LocationHandler.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LocationHandler.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/DAO/LocationHandler.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.444445">
-              <caret line="129" column="29" selection-start-line="129" selection-start-column="29" selection-end-line="129" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.31658292">
+              <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
               <folding>
                 <element signature="e#0#49#0" expanded="false" />
-                <element signature="e#1270#1611#0" expanded="false" />
+                <element signature="e#1264#1605#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -97,8 +96,8 @@
         <option value="$PROJECT_DIR$/js/DAO/MongoDBHandler.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/js/PopulateDB.js" />
-        <option value="$PROJECT_DIR$/js/DAO/LocationHandler.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/js/DAO/LocationHandler.js" />
       </list>
     </option>
   </component>
@@ -302,7 +301,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24924925" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -335,12 +334,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/DAO/LocationHandler.js</url>
-          <line>106</line>
+          <line>110</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/DAO/LocationHandler.js</url>
-          <line>120</line>
+          <line>124</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -350,22 +349,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/DAO/LocationHandler.js</url>
-          <line>112</line>
+          <line>116</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/DAO/LocationHandler.js</url>
-          <line>115</line>
+          <line>119</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/DAO/LocationHandler.js</url>
-          <line>117</line>
+          <line>121</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/DAO/LocationHandler.js</url>
-          <line>110</line>
+          <line>114</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
@@ -412,7 +411,7 @@
           <caret line="20" column="28" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="28" />
           <folding>
             <element signature="e#0#49#0" expanded="false" />
-            <element signature="e#1270#1611#0" expanded="false" />
+            <element signature="e#1264#1605#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -497,22 +496,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/DAO/LocationHandler.js">
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.444445">
-          <caret line="129" column="29" selection-start-line="129" selection-start-column="29" selection-end-line="129" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#49#0" expanded="false" />
-            <element signature="e#1270#1611#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="49.48148">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
+    <entry file="file://$PROJECT_DIR$/js/DAO/LocationHandler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75879395">
-          <caret line="94" column="44" selection-start-line="94" selection-start-column="44" selection-end-line="94" selection-end-column="44" />
-          <folding />
+        <state vertical-scroll-proportion="0.31658292">
+          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#49#0" expanded="false" />
+            <element signature="e#1264#1605#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

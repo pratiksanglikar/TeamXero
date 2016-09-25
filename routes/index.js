@@ -20,8 +20,9 @@ router.post('/find', function(req, res, next) {
 });
 
 router.post('/notifications', function(req, res, next) {
-	var latitude = req.body.latitude,
-		longitude = req.body.longitude,
+
+	var latitude = req.body.location[0],
+		longitude = req.body.location[1],
 		email = req.body.email;
 	var promise = LocationHandler.enableNotifications(email, longitude, latitude);
 
@@ -52,8 +53,8 @@ router.delete('/notifications', function(req, res, next) {
 });
 
 router.post('/notificationupdate',function(req,res, next) {
-	var latitude = req.body.latitude,
-		longitude = req.body.longitude,
+	var latitude = req.body.location[0],
+		longitude = req.body.location[1],
 		email = req.body.email;
 	var promise = LocationHandler.notificationupdate(email, longitude, latitude);
 	promise.done(function (response) {
@@ -106,6 +107,12 @@ router.post('/registerProvider', function(req, res, next) {
 		});
 	});
 });
+
+function notifyConsumers()
+{
+	var cursor = MongoDB.collection("consumers").find({"location": { $geoWithin: { $centerSphere: [ [ longitude, latitude ], radius/3963.2 ] } }});
+
+};
 
 
 module.exports = router;
