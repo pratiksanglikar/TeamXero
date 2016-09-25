@@ -24,7 +24,7 @@ router.post('/find', function (req, res, next) {
 router.post('/getProvidersInZipCode', function (req, res, next) {
 
        var zipcode = req.body.zipcode;
-    var promise = LocationHandler.find(zipcode);
+    var promise = LocationHandler.getProvidersInZipcode(zipcode);
 
     promise.done(function (response) {
         res.send(response);

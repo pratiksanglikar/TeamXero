@@ -140,17 +140,18 @@ exports.registerProvider = function (info) {
 exports.getProvidersInZipcode = function (zipcode) {
 	var deferred = Q.defer();
 	var cursor = MongoDB.collection("users").find({
-    "zipcode" : zipcode
+		"address.zipcode": zipcode
 	});
-	var usersdata = [];
-	cursor.each(function (error, doc) {
-		if (error) {
-			deferred.reject(error);
+	var locations = [];
+	cursor.each(function (err, doc) {
+		if(err) {
+			deferred.reject(err);
 		}
-		if (doc != null) {
-			usersdata.push(doc);
-		} else {
-			deferred.resolve(usersdata);
+		if(doc!=null) {
+			locations.push(doc);
+		}
+		else {
+			deferred.resolve(locations);
 		}
 	});
 	return deferred.promise;
