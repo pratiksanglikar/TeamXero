@@ -120,3 +120,15 @@ exports.find = function (latitude, longitude, radius) {
 	});
 	return deferred.promise;
 };
+
+exports.registerProvider = function (info) {
+	var deferred = Q.defer();
+	var cursor = MongoDB.collection("users").insert(info);
+	cursor.then(function (user) {
+		deferred.resolve(user);
+	}).catch(function (error) {
+		deferred.reject(error);
+	});
+	return deferred.promise;
+	//return true;
+};

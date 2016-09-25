@@ -67,4 +67,45 @@ router.post('/notificationupdate',function(req,res, next) {
 	});
 });
 
+router.post('/registerProvider', function(req, res, next) {
+
+	var info =
+	{
+		"firstName": req.body.firstName,
+		"lastName": req.body.lastName,
+		"location" : [
+			req.body.location[0],
+			req.body.location[1]
+		] ,
+		"address": {
+			"address": req.body.address.address,
+			"city": req.body.address.city,
+			"State": req.body.address.State,
+			"zipcode": req.body.address.zipcode
+		},
+		"contact" : req.body.contact,
+		"available" : true,
+		"foodtype" : "Indian",
+		"quantity" : req.body.quantity,
+		"description" : req.body.description,
+		"imageLink" : req.body.imageLink
+	};
+
+	info.timestamp = (new Date).getTime();
+	info.expirydate = info.timestamp + 10000;
+
+	var promise = LocationHandler.registerProvider(info);
+
+	promise.done(function (response) {
+		res.send({
+			"statuscode" : 200
+		});
+	}, function (error) {
+		res.send({
+			"statuscode" : 500
+		});
+	});
+});
+
+
 module.exports = router;
