@@ -23,8 +23,8 @@ router.post('/find', function (req, res, next) {
 
 router.post('/notifications', function (req, res, next) {
 
-    var latitude = req.body.location[1],
-        longitude = req.body.location[0],
+    var latitude = req.body.latitude,
+        longitude = req.body.longitude,
         email = req.body.email;
     var promise = LocationHandler.enableNotifications(email, longitude, latitude);
 
@@ -55,8 +55,8 @@ router.delete('/notifications', function (req, res, next) {
 });
 
 router.post('/notificationupdate', function (req, res, next) {
-    var latitude = req.body.location[1],
-        longitude = req.body.location[0],
+    var latitude = req.body.latitude,
+        longitude = req.body.longitude,
         email = req.body.email;
     var promise = LocationHandler.notificationupdate(email, longitude, latitude);
     promise.done(function (response) {
