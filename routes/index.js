@@ -40,8 +40,8 @@ router.post('/notifications', function (req, res, next) {
 });
 
 router.delete('/notifications', function (req, res, next) {
-    var email = req.body.email;
-    var promise = LocationHandler.disableNotifications(email);
+    var token = req.body.token;
+    var promise = LocationHandler.disableNotifications(token);
     promise.done(function (response) {
         res.send(
             {
@@ -57,8 +57,8 @@ router.delete('/notifications', function (req, res, next) {
 router.post('/notificationupdate', function (req, res, next) {
     var latitude = req.body.latitude,
         longitude = req.body.longitude,
-        email = req.body.email;
-    var promise = LocationHandler.notificationupdate(email, longitude, latitude);
+        token = req.body.token;
+    var promise = LocationHandler.notificationupdate(token, longitude, latitude);
     promise.done(function (response) {
         res.send({
             "statuscode": 200
