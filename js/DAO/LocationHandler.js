@@ -42,13 +42,63 @@ exports.find = function (latitude, longitude, radius) {
 }
 */
 
-exports.enableNotifications = function (email, latitude, longitude) {
-	return true;
+exports.enableNotifications = function (email, longitude,latitude ) {
+	var deferred = Q.defer();
+	var info =
+	{
+		"email" : email,
+		"longitude" : longitude,
+		"latitude" : latitude
+	};
+	var cursor = MongoDB.collection("consumer").insert(info);
+	cursor.then(function (user) {
+		deferred.resolve(user);
+	}).catch(function (error) {
+		deferred.reject(error);
+	});
+	return deferred.promise;
+	//return true;
 };
 
 exports.disableNotifications = function (email) {
-	return true;
+	var deferred = Q.defer();
+	MongoDB.collection("consumer").remove({
+		"email": email
+	}, function (err, numberOfRemoved) {
+		if (err) {
+			deferred.reject(err);
+		}
+		if (numberOfRemoved.result.n) {
+			deferred.resolve();
+		} else {
+			deferred.reject("consumer with given email not found in system!");
+		}
+	});
+	return deferred.promise;
 }
+
+exports.notificationupdate = function (email, longitude,latitude){
+	var deferred = Q.defer();
+	var info =
+	{
+		"email" : email,
+		"longitude" : longitude,
+		"latitude" : latitude
+	};
+	var cursor = MongoDB.collection("consumer").update({"email" : email},
+		{
+			"email" : email,
+			"longitude":longitude,
+			"latitude":latitude
+
+		});
+	cursor.then(function (result) {
+		deferred.resolve(result);
+	}).catch(function (error) {
+		deferred.reject(error);
+	});
+	return deferred.promise;
+};
 
 
 

@@ -20,14 +20,51 @@ router.post('/find', function(req, res, next) {
 });
 
 router.post('/notifications', function(req, res, next) {
-	var email = req.params.email,
-		latitude = req.params.lat,
-		longitude = req.params.long;
-	res.send(LocationHandler.enableNotifications(email, latitude, longitude));
+	var latitude = req.body.latitude,
+		longitude = req.body.longitude,
+		email = req.body.email;
+	var promise = LocationHandler.enableNotifications(email, longitude, latitude);
+
+	promise.done(function (response) {
+		res.send({
+			"statuscode" : 200
+	});
+	}, function (error) {
+		res.send({
+			"statuscode" : 500
+		});
+	});
 });
 
 router.delete('/notifications', function(req, res, next) {
-	var email = req.params.email;
-	res.send(LocationHandler.disableNotifications(email));
+	var email = req.body.email;
+	var promise = LocationHandler.disableNotifications(email);
+	promise.done(function (response) {
+		res.send(
+			{
+				"statuscode" : 200
+			});
+	}, function (error) {
+		res.send({
+			"statuscode" : 500
+		});
+	});
 });
+
+router.post('/notificationupdate',function(req,res, next) {
+	var latitude = req.body.latitude,
+		longitude = req.body.longitude,
+		email = req.body.email;
+	var promise = LocationHandler.notificationupdate(email, longitude, latitude);
+	promise.done(function (response) {
+		res.send({
+			"statuscode" : 200
+		});
+	}, function (error) {
+		res.send({
+			"statuscode" : 500
+		});
+	});
+});
+
 module.exports = router;
