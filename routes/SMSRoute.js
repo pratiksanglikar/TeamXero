@@ -32,18 +32,23 @@ router.post('/messages', function (req, res, next) {
 		res.statusCode(500).send({'error': 'Invalid zipcode'});
 	}
 	var finalArray = "";
-		if(zipCode == 95118 || zipCode == '95118') {
-			finalArray = "1. Meal Boxes at 1146, Blossom Hill Rd, San Jose, CA" +
-					"2. Chickoo at 11-98 North 4th Street, San Jose, CA.  Enjoy your food!";
-		} else {
-			finalArray = "Oops! No free food today! Sorry! :(";
-		}
-		var twilio = require('twilio');
-		var twiml = new twilio.TwimlResponse();
-		twiml.message(finalArray);
-		res.writeHead(200, {'Content-Type': 'text/xml'});
-		res.end(twiml.toString());
+	if (zipCode == 95118 || zipCode == '95118') {
+		finalArray = "1. Meal Boxes at 1146, Blossom Hill Rd, San Jose, CA" +
+			"2. Chickoo at 11-98 North 4th Street, San Jose, CA.  Enjoy your food!";
+	}
+	if (zipCode == 94022 || zipCode == '94022') {
+		finalArray = "1. Prepackaged Meal boxes at Whole Food Market, 4800 El Camino Real, Los Altos, CA.  Enjoy your food!";
+	} else if(zipCode == 95014 || zipCode == '95014') {
+		finalArray = "1. Sushi Box at 20955 Stevens Creek Boulevard, Cupertino, San Jose, CA.  Enjoy your food!";
+	} else {
+		finalArray = "Oops! No free food today! Sorry! :(";
+	}
+	var twilio = require('twilio');
+	var twiml = new twilio.TwimlResponse();
+	twiml.message(finalArray);
+	res.writeHead(200, {'Content-Type': 'text/xml'});
+	res.end(twiml.toString());
 
-	});
+});
 
 module.exports = router;
