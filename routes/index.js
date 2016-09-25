@@ -7,9 +7,16 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/find', function(req, res, next) {
-	var latitude = req.params.lat,
-		longitude = req.params.long;
-	res.send(LocationHandler.find(latitude, longitude));
+	var latitude = req.body.latitude,
+		longitude = req.body.longitude,
+		radius = req.body.radius;
+	var promise = LocationHandler.find(latitude, longitude, radius);
+
+	promise.done(function (response) {
+		res.send(response);
+	}, function (error) {
+		res.send(error);
+	});
 });
 
 router.post('/notifications', function(req, res, next) {
