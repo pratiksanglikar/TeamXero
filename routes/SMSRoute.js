@@ -27,7 +27,7 @@ router.get('/messages', function (req, res, next) {
 
 router.post('/messages', function (req, res, next) {
 	MongoDB.collection("sms").insert({
-		'message':'message received'
+			'message': req.body.Body
 	});
 	res.send({});
 });
